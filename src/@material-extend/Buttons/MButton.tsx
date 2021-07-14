@@ -1,49 +1,25 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { Button, ButtonProps, capitalize } from '@material-ui/core';
 import { useTheme, alpha } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/styles';
 import clsx from 'clsx';
-// ----------------------------------------------------------------------
-
-type MButtonColor =
-  | 'inherit'
-  | 'primary'
-  | 'secondary'
-  | 'info'
-  | 'success'
-  | 'warning'
-  | 'error';
-
-type MButtonStyledColor = 'info' | 'success' | 'warning' | 'error';
-
-type MVariantClassName =
-  | 'containedInfo'
-  | 'containedSuccess'
-  | 'containedWarning'
-  | 'containedError'
-  | 'containedWhite'
-  | 'outlinedInfo'
-  | 'outlinedSuccess'
-  | 'outlinedWarning'
-  | 'outlinedError'
-  | 'textInfo'
-  | 'textSuccess'
-  | 'textWarning'
-  | 'textError';
-
-type MButtonType = 'contained' | 'outlined' | 'text';
-
+import { ClassNames } from '@emotion/react';
 // ----------------------------------------------------------------------
 
 export type MButtonProps = {
   children?: React.ReactNode;
   className?: string;
-  color?: MButtonColor;
+  color?: MColor;
   variant?: MButtonType;
-  loading: boolean;
+  loading?: boolean;
+  block?: boolean;
 } & ButtonProps;
 
 // ----------------------------------------------------------------------
+
+let blockStyle = `
+width: 100%
+`;
 
 const useStyles = makeStyles(() => {
   const theme = useTheme();
@@ -91,14 +67,6 @@ const useStyles = makeStyles(() => {
     containedSuccess: styleContained('success'),
     containedWarning: styleContained('warning'),
     containedError: styleContained('error'),
-    containedWhite: {
-      boxShadow: shadows[25].z8,
-      color: theme.palette.getContrastText(theme.palette.common.white),
-      backgroundColor: theme.palette.common.white,
-      '&:hover': {
-        backgroundColor: theme.palette.grey[300],
-      },
-    },
     // Outlined
     outlinedInfo: styleOutlined('info'),
     outlinedSuccess: styleOutlined('success'),
@@ -112,56 +80,79 @@ const useStyles = makeStyles(() => {
   };
 });
 
-const MButton: React.ForwardRefRenderFunction<unknown, MButtonProps> = (
-  props,
-  ref
-) => {
-  const {
-    color,
-    variant = 'contained',
-    children,
-    className,
-    loading = false,
-    size,
-    ...other
-  } = props;
-  const classes = useStyles();
-  const variantStyle = `${variant}${capitalize(
-    color as MButtonColor
-  )}` as MVariantClassName;
+const MButton = forwardRef<unknown, MButtonProps>(
+  (props: MButtonProps, ref) => {
+    const {
+      color = 'primary',
+      variant = 'contained',
+      children,
+      className,
+      loading = false,
+      block = false,
+      size = 'medium',
+      disabled,
+      ...other
+    } = props;
+    const classes = useStyles();
+    const variantStyle = `${variant}${capitalize(
+      color as MColor
+    )}` as MVariantClassName;
 
-  const buttonClass = classes[variantStyle];
+    const buttonClass = classes[variantStyle];
 
-  if (color === 'inherit' || color === 'primary' || color === 'secondary') {
+    if (color === 'inherit' || color === 'primary' || color === 'secondary') {
+      return (
+        <ClassNames>
+          {({ css }) => (
+            <Button
+              ref={ref as React.MutableRefObject<HTMLButtonElement>}
+              color={color}
+              variant={variant}
+              className={clsx(
+                {
+                  [css`
+                    ${blockStyle}
+                  `]: block,
+                },
+                className
+              )}
+              size={size}
+              disabled={disabled || loading}
+              {...other}
+            >
+              {children}
+            </Button>
+          )}
+        </ClassNames>
+      );
+    }
+
     return (
-      <Button
-        ref={ref as React.MutableRefObject<HTMLButtonElement>}
-        color={color}
-        variant={variant}
-        className={className}
-        size={size}
-        {...other}
-      >
-        {children}
-      </Button>
+      <ClassNames>
+        {({ css }) => (
+          <Button
+            ref={ref as React.MutableRefObject<HTMLButtonElement>}
+            variant={variant}
+            className={clsx(
+              {
+                [css`
+                  ${blockStyle}
+                `]: block,
+              },
+              {
+                [buttonClass]: color,
+              },
+              className
+            )}
+            disabled={disabled || loading}
+            {...other}
+          >
+            {children}
+          </Button>
+        )}
+      </ClassNames>
     );
   }
+);
 
-  return (
-    <Button
-      ref={ref as React.MutableRefObject<HTMLButtonElement>}
-      variant={variant}
-      className={clsx(
-        {
-          [buttonClass]: color,
-        },
-        className
-      )}
-      {...other}
-    >
-      {children}
-    </Button>
-  );
-};
-
-export default React.forwardRef<unknown, MButtonProps>(MButton);
+export default MButton;

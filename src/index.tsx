@@ -1,2 +1,1 @@
-export * from './Thing';
-export * from './components';
+export * from './@material-extend';

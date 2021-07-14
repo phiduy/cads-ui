@@ -79,6 +79,7 @@
     "@material-ui/icons": "^4.11.2",
     "@material-ui/styles": "^4.11.4",
     "clsx": "^1.1.1",
+    "framer-motion": "^4.1.17",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21"
   }
