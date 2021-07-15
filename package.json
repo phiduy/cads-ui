@@ -36,16 +36,16 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "tsdx-stroybook",
+  "name": "cads-ui",
   "author": "Vo Phi Nhat Duy",
-  "module": "dist/tsdx-stroybook.esm.js",
+  "module": "dist/cads-ui.esm.js",
   "size-limit": [
     {
-      "path": "dist/tsdx-stroybook.cjs.production.min.js",
+      "path": "dist/cads-ui.cjs.production.min.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/tsdx-stroybook.esm.js",
+      "path": "dist/cads-ui.esm.js",
       "limit": "10 KB"
     }
   ],
