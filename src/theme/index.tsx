@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes, ReactNode } from 'react';
+import React, { FC, HTMLAttributes } from 'react';
 import {
   ThemeProvider as MuiThemeProvider,
   StyledEngineProvider,
