@@ -21,7 +21,7 @@
     "storybook": "start-storybook -p 6006",
     "chromatic": "chromatic --project-token=CHROMATIC_PROJECT_TOKEN",
     "build-storybook": "build-storybook",
-    "release": "np --no-2fa"
+    "release": "np"
   },
   "peerDependencies": {
     "react": ">=17"
