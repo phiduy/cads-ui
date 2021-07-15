@@ -1,5 +1,5 @@
 {
-  "version": "0.1.1",
+  "version": "0.1.0",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -20,7 +20,8 @@
     "analyze": "size-limit --why",
     "storybook": "start-storybook -p 6006",
     "chromatic": "chromatic --project-token=CHROMATIC_PROJECT_TOKEN",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "release": "np --no-2fa"
   },
   "peerDependencies": {
     "react": ">=17"
