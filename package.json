@@ -37,16 +37,16 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "cads-ui",
+  "name": "cads-ui-demo",
   "author": "Vo Phi Nhat Duy",
-  "module": "dist/cads-ui.esm.js",
+  "module": "dist/cads-ui-demo.esm.js",
   "size-limit": [
     {
-      "path": "dist/cads-ui.cjs.production.min.js",
+      "path": "dist/cads-ui-demo.cjs.production.min.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/cads-ui.esm.js",
+      "path": "dist/cads-ui-demo.esm.js",
       "limit": "10 KB"
     }
   ],
