@@ -1,7 +1,7 @@
 import React from 'react';
 import * as ReactDOM from 'react-dom';
 import { MButton } from '../src/@material-extend';
-import ThemeProvider from '../src/theme';
+import { ThemeProvider } from '../src/theme';
 
 describe('MButton', () => {
   it('renders without crashing', () => {

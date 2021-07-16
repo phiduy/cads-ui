@@ -18,7 +18,7 @@ interface ThemeProviderProps extends HTMLAttributes<HTMLDivElement> {
   theme?: Theme;
 }
 
-const ThemeProvider: FC<ThemeProviderProps> = ({
+export const ThemeProvider: FC<ThemeProviderProps> = ({
   theme = lightTheme,
   children,
 }) => {
@@ -33,5 +33,3 @@ const ThemeProvider: FC<ThemeProviderProps> = ({
     </StyledEngineProvider>
   );
 };
-
-export default ThemeProvider;
