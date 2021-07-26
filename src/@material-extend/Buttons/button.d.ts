@@ -1,5 +1,3 @@
-declare type MButtonStyledColor = 'info' | 'success' | 'warning' | 'error';
-
 declare type MVariantClassName =
   | 'containedInfo'
   | 'containedSuccess'

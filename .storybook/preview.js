@@ -1,6 +1,7 @@
 import React from 'react';
 import { ThemeProvider, StyledEngineProvider } from '@material-ui/core/styles';
 import { ThemeProvider as SBThemeProvider } from '@storybook/theming';
+import { BrowserRouter } from 'react-router-dom';
 import { themeConfig } from '../src/theme';
 
 // https://storybook.js.org/docs/react/writing-stories/parameters#global-parameters
@@ -20,7 +21,9 @@ export const decorators = [
     <StyledEngineProvider injectFirst>
       <SBThemeProvider theme={themeConfig('light')}>
         <ThemeProvider theme={themeConfig('light')}>
-          <Story />
+          <BrowserRouter>
+            <Story />
+          </BrowserRouter>
         </ThemeProvider>
       </SBThemeProvider>
     </StyledEngineProvider>

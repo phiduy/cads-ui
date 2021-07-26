@@ -25,7 +25,7 @@ const useStyles = makeStyles(() => {
   const theme = useTheme();
   const shadows = (theme.shadows as unknown) as Shadows;
 
-  const styleContained = (color: MButtonStyledColor) => {
+  const styleContained = (color: MStyledColor) => {
     return {
       boxShadow: shadows[25][color],
       color: theme.palette[color].contrastText,
@@ -36,7 +36,7 @@ const useStyles = makeStyles(() => {
     };
   };
 
-  const styleOutlined = (color: MButtonStyledColor) => {
+  const styleOutlined = (color: MStyledColor) => {
     return {
       color: theme.palette[color].main,
       border: `1px solid ${alpha(theme.palette[color].main, 0.48)}`,
@@ -50,7 +50,7 @@ const useStyles = makeStyles(() => {
     };
   };
 
-  const textOutlined = (color: MButtonStyledColor) => {
+  const textOutlined = (color: MStyledColor) => {
     return {
       color: theme.palette[color].main,
       '&:hover': {

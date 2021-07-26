@@ -23,7 +23,7 @@ const useStyles = makeStyles(() => {
   const theme = useTheme();
   const shadows = (theme.shadows as unknown) as Shadows;
 
-  const createStyle = (color: MButtonStyledColor) => {
+  const createStyle = (color: MStyledColor) => {
     return {
       boxShadow: shadows[25][color],
       color: theme.palette[color].contrastText,

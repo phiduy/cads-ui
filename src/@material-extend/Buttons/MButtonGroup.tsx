@@ -18,7 +18,7 @@ const useStyles = makeStyles(() => {
   const theme = useTheme();
   const shadows = (theme.shadows as unknown) as Shadows;
 
-  const styleContained = (color: MButtonStyledColor) => {
+  const styleContained = (color: MStyledColor) => {
     return {
       '& button': {
         boxShadow: shadows[25][color],
@@ -34,7 +34,7 @@ const useStyles = makeStyles(() => {
     };
   };
 
-  const styleOutlined = (color: MButtonStyledColor) => {
+  const styleOutlined = (color: MStyledColor) => {
     return {
       '& button': {
         color: theme.palette[color].main,
@@ -50,7 +50,7 @@ const useStyles = makeStyles(() => {
     };
   };
 
-  const textOutlined = (color: MButtonStyledColor) => {
+  const textOutlined = (color: MStyledColor) => {
     return {
       '& button': {
         color: theme.palette[color].main,

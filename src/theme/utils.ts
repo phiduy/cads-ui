@@ -1,4 +1,3 @@
-import { BREAK_POINTS } from './globalStyles';
 import { alpha } from '@material-ui/core/styles';
 
 export const createGradient = (color1: string, color2: string): string => {
@@ -102,11 +101,10 @@ export const pxToRem = (value: number): string => {
   return `${value / 16}rem`;
 };
 
-export const responsiveFontSizes = ({
-  sm,
-  md,
-  lg,
-}: Record<'sm' | 'md' | 'lg', number>) => {
+export const responsiveFontSizes = (
+  BREAK_POINTS: { values: Record<'sm' | 'md' | 'lg', number> },
+  { sm, md, lg }: Record<'sm' | 'md' | 'lg', number>
+) => {
   return {
     [BREAK_POINTS.values.sm]: { fontSize: pxToRem(sm) },
     [BREAK_POINTS.values.md]: { fontSize: pxToRem(md) },

@@ -23,7 +23,7 @@ export type MIconButtonProps = {
 
 const useStyles = makeStyles(() => {
   const theme = useTheme();
-  const createStyle = (color: MButtonStyledColor) => {
+  const createStyle = (color: MStyledColor) => {
     return {
       color: theme.palette[color].main,
       '&:hover': {

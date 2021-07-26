@@ -1,4 +1,7 @@
 declare module '*.ttf';
+declare module '*.svg';
+
+declare type MStyledColor = 'info' | 'success' | 'warning' | 'error';
 
 declare type MColor =
   | 'default'

@@ -24,7 +24,13 @@
     "release": "np"
   },
   "peerDependencies": {
-    "react": ">=17"
+    "@emotion/react": ">=11",
+    "@emotion/styled": ">=11",
+    "@material-ui/core": ">=5.0.0-beta.0",
+    "@material-ui/icons": ">=4.11",
+    "@material-ui/styles": ">=4.11",
+    "react": ">=17",
+    "react-dom": ">=17"
   },
   "husky": {
     "hooks": {
@@ -62,6 +68,7 @@
     "@types/lodash": "^4.14.171",
     "@types/react": "^17.0.14",
     "@types/react-dom": "^17.0.9",
+    "@types/react-router-dom": "^5.1.8",
     "babel-loader": "^8.2.2",
     "chromatic": "^5.9.2",
     "husky": "^7.0.1",
@@ -78,10 +85,15 @@
     "@emotion/styled": "^11.3.0",
     "@material-ui/core": "^5.0.0-beta.0",
     "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.60",
     "@material-ui/styles": "^4.11.4",
     "clsx": "^1.1.1",
+    "echarts": "^5.1.2",
+    "echarts-for-react": "^3.0.1",
     "framer-motion": "^4.1.17",
     "lodash": "^4.17.21",
-    "lodash-es": "^4.17.21"
+    "lodash-es": "^4.17.21",
+    "react-router-dom": "^5.2.0",
+    "react-svg": "^14.0.6"
   }
 }
